@@ -1,0 +1,25 @@
+{% macro show_table(table_1, relation_1, len) -%}
+{% set n = len(relation_1) %}
+<p>
+    <b>{{table_1}} </b>
+</p>
+<table>
+    <!-- формируем заголовок таблицы (имена столбцов) -->
+    <tr>
+        {% for name in relation_1.dtypes.index %}
+        <th>{{name}}</th>
+        {% endfor %}
+    </tr>
+    <tbody>
+    <!-- для всех строк таблицы -->
+    {% for i in range(n) %}
+    <tr>
+        <!-- выводим значение каждого столбца -->
+        {% for name in relation_1.dtypes.index %}
+        <td> {{ relation_1.loc[i, name] }}</td>
+        {% endfor %}
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endmacro -%}

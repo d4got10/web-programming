@@ -1,0 +1,17 @@
+{% from "table_macro.html" import show_table %}
+
+<html>
+<head>
+    <title> Дамп базы данных </title>
+    <link rel="stylesheet" type="text/css" href="css/styles.css"/>
+</head>
+<body>
+<div class="flex-container">
+    {% for i in range(len(table_names)) %}
+    <div style="margin-right:10px">
+        {{ show_table(name, table_names[i], tables[i], len) }}
+    </div>
+    {% endfor %}
+</div>
+</body>
+</html>

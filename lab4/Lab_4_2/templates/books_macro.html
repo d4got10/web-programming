@@ -1,0 +1,6 @@
+{% macro show_book(book, len) -%}
+Название: {{ book['title'] }}<br>
+Авторы: {{ book['author_name'] }}<br>
+Жанр: {{ book['genre_name'] }}<br>
+<button>Выбрать</button>
+{% endmacro -%}

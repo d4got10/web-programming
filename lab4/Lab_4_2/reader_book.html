@@ -1,184 +1,297 @@
 ﻿
 
+
+
 <html>
 <head>
     <title> Карточка читателя </title>
-    
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 <p>
 <form>
-    Читатель:
-    <select name="reader">
-        
-        
-        
-        
-        <option value=1>
+    <div class="flex-container">
+        <div>
+            <p>Жанр: <br>
             
-            Иванов М.С.
-        </option>
-        
-        
-        
-        <option value=2>
+  <input type=checkbox name=subject[] value=0
+    
+         checked
+    
+  >
+  Роман<br>
+
+  <input type=checkbox name=subject[] value=1
+    
+         checked
+    
+  >
+  Приключения<br>
+
+  <input type=checkbox name=subject[] value=2
+    
+  >
+  Детектив<br>
+
+  <input type=checkbox name=subject[] value=3
+    
+  >
+  Лирика<br>
+
+  <input type=checkbox name=subject[] value=4
+    
+  >
+  Фантастика<br>
+
+  <input type=checkbox name=subject[] value=5
+    
+  >
+  Фэнтези<br>
+
+
+            </p>
+            <p>Автор: <br>
             
-            Петров Ф.С.
-        </option>
-        
-        
-        
-        <option selected value=3>
+  <input type=checkbox name=subject[] value=0
+    
+         checked
+    
+  >
+  Пушкин А.С.<br>
+
+  <input type=checkbox name=subject[] value=1
+    
+         checked
+    
+  >
+  Агата Кристи<br>
+
+  <input type=checkbox name=subject[] value=2
+    
+         checked
+    
+  >
+  Жюль Верн<br>
+
+  <input type=checkbox name=subject[] value=3
+    
+         checked
+    
+  >
+  Ильф И.А.<br>
+
+  <input type=checkbox name=subject[] value=4
+    
+  >
+  Петров Е.П.<br>
+
+  <input type=checkbox name=subject[] value=5
+    
+  >
+  Булгаков М.А.<br>
+
+  <input type=checkbox name=subject[] value=6
+    
+  >
+  Лермонтов М.Ю.<br>
+
+  <input type=checkbox name=subject[] value=7
+    
+  >
+  Стругацкий А.Н.<br>
+
+  <input type=checkbox name=subject[] value=8
+    
+  >
+  Стругацкий Б.Н.<br>
+
+  <input type=checkbox name=subject[] value=9
+    
+  >
+  Дойл Артур Конан<br>
+
+  <input type=checkbox name=subject[] value=10
+    
+  >
+  Достоевский Ф.М.<br>
+
+
+            </p>
+            <p>Издательство: <br>
             
-            Федоров П.Р.
-        </option>
-        
-        
-        
-        <option value=4>
-            
-            Абрамова А.А.
-        </option>
-        
-        
-        
-        <option value=5>
-            
-            Самарин С.С.
-        </option>
-        
-        
-        
-        <option value=6>
-            
-            Туполев И.Д.
-        </option>
-        
-        
-        
-        <option value=7>
-            
-            Баранов П.В.
-        </option>
-        
-    </select>
-    <input type="submit" value="Найти">
+  <input type=checkbox name=subject[] value=0
+    
+         checked
+    
+  >
+  ЭКСМО<br>
+
+  <input type=checkbox name=subject[] value=1
+    
+         checked
+    
+  >
+  ПИТЕР<br>
+
+  <input type=checkbox name=subject[] value=2
+    
+         checked
+    
+  >
+  РОСМЭН<br>
+
+  <input type=checkbox name=subject[] value=3
+    
+         checked
+    
+  >
+  АЛЬФА-КНИГА<br>
+
+  <input type=checkbox name=subject[] value=4
+    
+         checked
+    
+  >
+  ДРОФА<br>
+
+  <input type=checkbox name=subject[] value=5
+    
+         checked
+    
+  >
+  АСТ<br>
+
+  <input type=checkbox name=subject[] value=6
+    
+  >
+  НАУКА<br>
+
+
+            </p>
+            <button>Найти</button>
+            <button>Очистить</button>
+        </div>
+        <div>
+            <p>
+                
+
+                Жанры:
+                
+                Приключения,
+                
+                Детектив.
+
+                
+            </p>
+            <p>
+                
+
+                Авторы:
+                
+                Агата Кристи,
+                
+                Жюль Верн,
+                
+                Ильф И.А.,
+                
+                Петров Е.П..
+
+                
+            </p>
+            <p>
+                
+
+                Издательство:
+                
+                ПИТЕР,
+                
+                РОСМЭН,
+                
+                АЛЬФА-КНИГА,
+                
+                ДРОФА,
+                
+                АСТ,
+                
+                НАУКА.
+
+                
+            </p>
+            <table>
+                <tr>
+                    <th>Книги</th>
+                </tr>
+                <tbody>
+                
+                <tr>
+                    <td> Название: Двенадцать стульев<br>
+Авторы: Ильф И.А.<br>
+Жанр: Роман<br>
+<button>Выбрать</button>
+</td>
+                </tr>
+                
+                <tr>
+                    <td> Название: Золотой теленок<br>
+Авторы: Ильф И.А.<br>
+Жанр: Роман<br>
+<button>Выбрать</button>
+</td>
+                </tr>
+                
+                <tr>
+                    <td> Название: Таинственный остров<br>
+Авторы: Жюль Верн<br>
+Жанр: Приключения<br>
+<button>Выбрать</button>
+</td>
+                </tr>
+                
+                <tr>
+                    <td> Название: Евгений Онегин<br>
+Авторы: Пушкин А.С.<br>
+Жанр: Роман<br>
+<button>Выбрать</button>
+</td>
+                </tr>
+                
+                <tr>
+                    <td> Название: Дубровский<br>
+Авторы: Пушкин А.С.<br>
+Жанр: Роман<br>
+<button>Выбрать</button>
+</td>
+                </tr>
+                
+                <tr>
+                    <td> Название: Вокруг света за 80 дней<br>
+Авторы: Жюль Верн<br>
+Жанр: Приключения<br>
+<button>Выбрать</button>
+</td>
+                </tr>
+                
+                <tr>
+                    <td> Название: Капитанская дочка<br>
+Авторы: Пушкин А.С.<br>
+Жанр: Роман<br>
+<button>Выбрать</button>
+</td>
+                </tr>
+                
+                <tr>
+                    <td> Название: Одноэтажная Америка<br>
+Авторы: Ильф И.А.<br>
+Жанр: Роман<br>
+<button>Выбрать</button>
+</td>
+                </tr>
+                
+                </tbody>
+            </table>
+        </div>
+    </div>
 </form>
 </p>
-
-<p>
-    <b>Карточка </b>
-</p>
-<table>
-    <!-- формируем заголовок таблицы (имена столбцов) -->
-    <tr>
-        
-        <th>book_reader_id</th>
-        
-        <th>book_id</th>
-        
-        <th>reader_id</th>
-        
-        <th>borrow_date</th>
-        
-        <th>return_date</th>
-        
-    </tr>
-    <tbody>
-    <!-- для всех строк таблицы -->
-    
-    <tr>
-        <!-- выводим значение каждого столбца -->
-        
-        <td> 8</td>
-        
-        <td> 1</td>
-        
-        <td> 3</td>
-        
-        <td> 2020-09-28</td>
-        
-        <td> 2020-10-07</td>
-        
-    </tr>
-    
-    <tr>
-        <!-- выводим значение каждого столбца -->
-        
-        <td> 16</td>
-        
-        <td> 20</td>
-        
-        <td> 3</td>
-        
-        <td> 2020-10-09</td>
-        
-        <td> 2020-10-29</td>
-        
-    </tr>
-    
-    <tr>
-        <!-- выводим значение каждого столбца -->
-        
-        <td> 29</td>
-        
-        <td> 26</td>
-        
-        <td> 3</td>
-        
-        <td> 2020-10-23</td>
-        
-        <td> 2020-10-28</td>
-        
-    </tr>
-    
-    <tr>
-        <!-- выводим значение каждого столбца -->
-        
-        <td> 38</td>
-        
-        <td> 14</td>
-        
-        <td> 3</td>
-        
-        <td> 2020-11-14</td>
-        
-        <td> None</td>
-        
-    </tr>
-    
-    <tr>
-        <!-- выводим значение каждого столбца -->
-        
-        <td> 41</td>
-        
-        <td> 11</td>
-        
-        <td> 3</td>
-        
-        <td> 2020-11-21</td>
-        
-        <td> 2020-12-12</td>
-        
-    </tr>
-    
-    <tr>
-        <!-- выводим значение каждого столбца -->
-        
-        <td> 45</td>
-        
-        <td> 21</td>
-        
-        <td> 3</td>
-        
-        <td> 2020-11-29</td>
-        
-        <td> 2020-12-21</td>
-        
-    </tr>
-    
-    </tbody>
-</table>
-
 </body>
 </html>

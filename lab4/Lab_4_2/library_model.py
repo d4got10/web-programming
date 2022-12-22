@@ -14,6 +14,12 @@ def get_genres(conn):
 
 
 def get_book_with_arguments(conn, genres, authors, publishers):
+    if len(genres) == 1:
+        genres = "(" + str(genres[0]) + ")"
+    if len(authors) == 1:
+        authors = "(" + str(authors[0]) + ")"
+    if len(publishers) == 1:
+        publishers = "(" + str(publishers[0]) + ")"
     return pd.read_sql(f'''SELECT * FROM book_author
                             JOIN book USING (book_id)
                             JOIN genre USING (genre_id)

@@ -15,6 +15,7 @@
         </p>
         Образовательная программа:
         <select name=program>
+            <option value="-1"></option>
             {% for i in range(len(program_list)) %}
             <option value={{i}}>{{program_list[i]}}</option>
             {% endfor %}

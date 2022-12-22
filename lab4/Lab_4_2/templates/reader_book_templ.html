@@ -1,32 +1,84 @@
 {% from "table_macro.html" import show_table %}
+{% from "selection_macro.html" import show_selection %}
+{% from "books_macro.html" import show_book %}
 
 <html>
 <head>
     <title> Карточка читателя </title>
-    {% macro render_table(table_name, relation) %}
-    …
-    {% endmacro %}
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 <p>
 <form>
-    Читатель:
-    <select name="reader">
-        {% set n = len(combo_box) %}
-        {% for i in range(n) %}
-        {% set id_r = combo_box.loc[i, "reader_id"] %}
-        {% if id_r == reader_id %}
-        <option selected value={{id_r}}>
-            {% else %}
-        <option value={{id_r}}>
-            {% endif %}
-            {{ combo_box.loc[i, "reader_name"] }}
-        </option>
-        {% endfor %}
-    </select>
-    <input type="submit" value="Найти">
+    <div class="flex-container">
+        <div>
+            <p>Жанр: <br>
+            {{ show_selection(genres, selected_genres, len) }}
+            </p>
+            <p>Автор: <br>
+            {{ show_selection(authors, selected_authors, len) }}
+            </p>
+            <p>Издательство: <br>
+            {{ show_selection(publishers, selected_publishers, len) }}
+            </p>
+            <button>Найти</button>
+            <button>Очистить</button>
+        </div>
+        <div>
+            <p>
+                {% if len(selected_genres) == 0 %}
+                    Не выбраны жанры.
+                {% else %}
+
+                Жанры:
+                {% for i in selected_genres[:-1] %}
+                {{ genres[i] }},
+                {% endfor %}
+                {{ genres[selected_genres[-1]] }}.
+
+                {% endif %}
+            </p>
+            <p>
+                {% if len(selected_authors) == 0 %}
+                    Не выбраны авторы.
+                {% else %}
+
+                Авторы:
+                {% for i in selected_authors[:-1] %}
+                {{ authors[i] }},
+                {% endfor %}
+                {{ authors[selected_authors[-1]] }}.
+
+                {% endif %}
+            </p>
+            <p>
+                {% if len(selected_publishers) == 0 %}
+                    Не выбраны издатели.
+                {% else %}
+
+                Издательство:
+                {% for i in selected_publishers[:-1] %}
+                {{ publishers[i] }},
+                {% endfor %}
+                {{ publishers[selected_publishers[-1]] }}.
+
+                {% endif %}
+            </p>
+            <table>
+                <tr>
+                    <th>Книги</th>
+                </tr>
+                <tbody>
+                {% for i in range(len(books)) %}
+                <tr>
+                    <td> {{ show_book(books.iloc[i]) }}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
 </form>
 </p>
-{{ show_table("Карточка", book_reader, len) }}
 </body>
 </html>

@@ -18,7 +18,11 @@
     {% endif %}
     {{name}}!
 <p>
-    Ваша образовательная программа: {{program}}.
+    {% if program == -1 %}
+    Вы не выбрали образовательную программу.
+    {% else %}
+    Ваша образовательная программа: {{program_list[program]}}.
+    {% endif %}
 </p>
 <p>
     {% if subjects_select == [] %}
@@ -43,4 +47,5 @@
     {%endif%}
 </p>
 {% endif %}
+<button onclick="history.back()">Вернуться</button>
 </body>

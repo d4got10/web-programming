@@ -1,0 +1,10 @@
+{% macro show_selection(variants, selected, len) -%}
+{% for index in range(len(variants)) %}
+  <input type=checkbox name=subject[] value={{index}}
+    {% if (index + 1) in selected %}
+         checked
+    {% endif %}
+  >
+  {{variants[index]}}<br>
+{% endfor %}
+{% endmacro -%}

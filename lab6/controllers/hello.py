@@ -7,7 +7,7 @@ from flask import render_template, request
 def hello():
     name = ""
     gender = ""
-    program_id = 0
+    program_id = -1
     subject_id = []
     subjects_select = []
     contest_id = []
@@ -24,7 +24,7 @@ def hello():
         'hello.html',
         name=name,
         gender=gender,
-        program=constants.programs[int(program_id)],
+        program=int(program_id),
         program_list=constants.programs,
         len=len,
         subjects_select=subjects_select,

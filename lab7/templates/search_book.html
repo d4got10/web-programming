@@ -49,7 +49,7 @@
     {% for i in range(n) %}
         <div class="card">
             {% for name in card.dtypes.index %}
-            {% if name != 'book_id' %}
+            {% if name != 'id' %}
             <p><b>{{ name }}:</b> {{ card.loc[i, name] }}</p>
                 {% endif %}
             {% endfor %}
@@ -57,7 +57,7 @@
                 {% if card.loc[i, 'Количество']>0 %}
                 <form action="{{ url_for('search_book') }}" method="get">
                 <input name="reader_id" value="{{user_id}}" type="hidden"></input>
-                <input name="borrow_book_id" value="{{card.loc[i, 'book_id']}}" type="hidden"></input>
+                <input name="borrow_book_id" value="{{card.loc[i, 'id']}}" type="hidden"></input>
                 <input name="submitBorrowBook" value="Выбрать" type="submit"></input>
                 </form>
                 {% endif %}
@@ -73,7 +73,7 @@
     <ul>
         <li><a href={{ url_for("index") }}>Читатель</a></li>
         <li class=active><a href={{ url_for("search_book") }}>Книги</a></li>
-        <li><a href={{ url_for("index") }}>Статистика</a></li>
+        <li><a href={{ url_for("statistics") }}>Статистика</a></li>
     </ul>
     </div>
 <div style="display: inline-flex">

@@ -19,23 +19,39 @@ def cardQuerry(conn, publishers, genres, authors):
     if len(authors) == 1:
         authors = f'({authors[0]})'
     return pd.read_sql(f'''
+    SELECT 
+    id,
+    Название,
+    GROUP_CONCAT(DISTINCT Авторы) as 'Авторы',
+    Жанр,
+    Издательство,
+    Год_издания,
+    Количество
+    FROM
+    (
         SELECT
         	title AS 'Название',
-        	group_concat(DISTINCT author_name) AS 'Авторы',
         	genre_name AS 'Жанр',
         	publisher_name AS 'Издательство',
             year_publication AS 'Год_издания',
             available_numbers AS 'Количество',
-            book_id as book_id
+            book_id as id
         FROM book
         JOIN genre USING(genre_id)
         JOIN publisher USING(publisher_id)
-        CROSS JOIN book_author USING(book_id)
-        JOIN author USING(author_id)
-        GROUP BY book_id
-        HAVING ((genre_id IN {genres} OR {len(genres)==0})
+        JOIN book_author USING(book_id)
+        WHERE (genre_id IN {genres} OR {len(genres)==0})
             AND (publisher_id IN {publishers} OR {len(publishers)==0})
-            AND (book_author.author_id IN {authors} OR {len(authors)==0}))
+            AND (author_id IN {authors} OR {len(authors)==0}) 
+    ) as q1
+    INNER JOIN 
+    (
+        SELECT book_id, author_name as 'Авторы'
+        FROM book_author
+        JOIN author USING (author_id)
+    ) AS q2 
+    ON id = book_id
+    GROUP BY id
     ''', conn)
 
 def borrow_book(conn, book_id, user_id):
